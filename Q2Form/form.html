@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Form</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css"> 
+	<script src="http://code.angularjs.org/1.2.6/angular.js"></script> 
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="validationApp" ng-controller="mainController">
+	<div class="container">
+		<div class="col-sm-8 col-sm-offset-2">
+		<!-- FORM -->
+		<div class="reg-form">
+			<!-- Pass in the variable checking form is valid or not -->
+			<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate> <!-- Disabling html validation -->
+				<h2><strong>Event registration form</strong></h2><br>
+				<div class="form-group">
+					<label >Event</label><span class="req">*</span>
+					    <div class="form-group">
+					        <div class="radio">
+					            <label>
+					                <input type="radio" name="event" value="litSocWM" ng-model="formData.event">
+					                LitSoc WM
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label>
+					                <input type="radio" name="event" value="litSocLM" ng-model="formData.event">
+					                LitSoc LM
+					            </label>
+					        </div>
+					    </div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : userForm.bandName.$invalid && !userForm.bandName.$pristine }">
+					<label>Band name</label><span class="req">*</span>
+					<input type="text" name="bandName" class="form-control" ng-model="formData.bandName" required>
+					<p ng-show="userForm.bandName.$invalid && !userForm.bandName.$pristine" class="help-block">Band name is required</p>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : userForm.memberCount.$invalid && !userForm.memberCount.$pristine }">
+					<label>Number of members</label><span class="req">*</span>
+					<input type="number" name="memberCount" class="form-control" ng-model="formData.memberCount" min="3" max="8" ng-pattern="/^\d+$/" required>
+					<p ng-show="userForm.memberCount.$error.min" class="help-block">Number of members should be between 3 and 8</p>
+					<p ng-show="userForm.memberCount.$error.max" class="help-block">Number of members should be between 3 and 8</p>
+					<p ng-show="userForm.memberCount.$error.required && !userForm.memberCount.$pristine" class="help-block">Number of members is required</p>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : userForm.pocName.$invalid && !userForm.pocName.$pristine }">
+					<label>POC (point of contact) name</label><span class="req">*</span>
+					<input type="text" name="pocName" class="form-control" ng-model="formData.pocName" required>
+					<p ng-show="userForm.pocName.$invalid && !userForm.pocName.$pristine" class="help-block">POC name is required</p>
+				</div>
+				
+
+				<div class="form-group" ng-class="{ 'has-error' : (userForm.contactNumber.$error.required || userForm.contactNumber.$error.minlength || userForm.contactNumber.$error.maxlength) && !userForm.contactNumber.$pristine }">
+					<label>Contact number</label><span class="req">*</span>
+					<input type="number" name="contactNumber" class="form-control" ng-model="formData.contactNumber" ng-minlength="10" ng-maxlength="10" required>
+					<p ng-show="userForm.contactNumber.$error.required && !userForm.contactNumber.$pristine" class="help-block">Contact number is required</p>
+					<p class="help-block" 
+	                  ng-show="((userForm.contactNumber.$error.minlength || userForm.contactNumber.$error.maxlength) && userForm.contactNumber.$dirty)">Number should be 10 digits
+	            	</p>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+					<label>Email</label><span class="req">*</span>
+					<input type="email" name="email" class="form-control" ng-model="formData.email" required>
+					<p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Valid email required.</p>
+				</div>
+
+				
+
+				<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Register</button>
+			
+			</form>
+		</div>
+		</div>
+		<div class="col-sm-2"></div>
+
+	</div>	
+</body>
+</html>	

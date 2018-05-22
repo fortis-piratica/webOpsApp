@@ -1,0 +1,29 @@
+var animalsInfo = {
+	
+	"cat":{
+			"name": "Cat",
+			"info": "The domestic cat is a small, typically furry, carnivorous mammal. They are often called house cats when kept as indoor pets or simply cats when there is no need to distinguish them from other felids and felines.",
+			"picLink": "https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?cs=srgb&dl=animal-animal-photography-cat-104827.jpg&fm=jpg"
+		},
+	"dog":{
+			"name": "Dog",
+			"info": "The domestic dog is a member of the genus Canis, which forms part of the wolf-like canids, and is the most widely abundant terrestrial carnivore.",
+			"picLink": "https://images.pexels.com/photos/460823/pexels-photo-460823.jpeg?cs=srgb&dl=animal-beagle-canine-460823.jpg&fm=jpg"		
+		},
+	"horse":{
+			"name": "Horse",
+			"info": "The horse is one of two extant subspecies of Equus ferus. It is an odd-toed ungulate mammal belonging to the taxonomic family Equidae.",
+			"picLink": "https://images.pexels.com/photos/635499/pexels-photo-635499.jpeg?cs=srgb&dl=animal-countryside-equine-635499.jpg&fm=jpg"
+		},
+	"fish":{
+			"name": "Fish",
+			"info": "Fish are the gill-bearing aquatic craniate animals that lack limbs with digits. They form a sister group to the tunicates, together forming the olfactores.",
+			"picLink": "https://images.pexels.com/photos/146013/pexels-photo-146013.jpeg?cs=srgb&dl=animal-aquarium-fish-146013.jpg&fm=jpg"
+		},
+	"bear":{
+			"name": "Bear",
+			"info": "Bears are carnivoran mammals of the family Ursidae. They are classified as caniforms, or doglike carnivorans.",
+			"picLink": "https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg?cs=srgb&dl=animal-animal-photography-bear-1068554.jpg&fm=jpg"
+		}
+	
+}
